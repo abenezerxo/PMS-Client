@@ -230,16 +230,13 @@ public class Login extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
-        // TODO add your handling code here:
         login();
     }//GEN-LAST:event_btnLoginActionPerformed
 
     private void btnExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExitActionPerformed
-        // TODO add your handling code here:
         if (PopUp.confirmationDialog("Are you sure you want to exit?", "Exit Confirmation") == JOptionPane.YES_OPTION) {
             System.exit(0);
         }
-
     }//GEN-LAST:event_btnExitActionPerformed
 
     private void txtPasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPasswordActionPerformed
@@ -255,27 +252,22 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_btnExitMouseDragged
 
     private void btnExitMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnExitMouseMoved
-        // TODO add your handling code here:
         btnExit.setBackground(new Color(117, 41, 41));
     }//GEN-LAST:event_btnExitMouseMoved
 
     private void btnExitMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnExitMouseExited
-        // TODO add your handling code here:
         btnExit.setBackground(new Color(135, 135, 135));
     }//GEN-LAST:event_btnExitMouseExited
 
     private void lbForgetPasswordMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbForgetPasswordMouseEntered
-        // TODO add your handling code here:
         lbForgetPassword.setText("<html><u> Forget Password?</u></html>");
     }//GEN-LAST:event_lbForgetPasswordMouseEntered
 
     private void lbForgetPasswordMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbForgetPasswordMouseExited
-        // TODO add your handling code here:
         lbForgetPassword.setText("<html> Forget Password?</html>");
     }//GEN-LAST:event_lbForgetPasswordMouseExited
 
     private void lbForgetPasswordMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbForgetPasswordMouseClicked
-        // TODO add your handling code here:
         new ForgetPassword().setVisible(true);
         this.dispose();
     }//GEN-LAST:event_lbForgetPasswordMouseClicked
@@ -288,28 +280,6 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_txtPasswordKeyPressed
 
     public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
         FlatLightLaf.setup();
 
         /* Create and display the form */
@@ -355,7 +325,7 @@ public class Login extends javax.swing.JFrame {
             txtPassword.grabFocus();
 
         } else {
-            /* Bothe Username and Password Entered */
+            /* Both Username and Password Entered */
             try {
                 //this.dispose();
                 ArrayList<Object> loginResult = connectToServer().login(txtUsername.getText(), txtPassword.getText());
@@ -365,8 +335,14 @@ public class Login extends javax.swing.JFrame {
                     txtPassword.setText("");
                 } else {
                     Object[] result = (Object[]) loginResult.get(0);
-
-                    if (result[4].equals("1")) {
+                    System.out.println("temp ## -> " + result[5]);
+                    if (result[5].equals("tempPassword")) {
+                        /*If user logged in with temporary password -> execute mandatory password change*/
+                        ChangePassword.id = (String) result[0];
+                        PopUp.infoDialog("You need to change your password!", "Mandatory Password Change");
+                        new ChangePassword().setVisible(true);
+                        this.dispose();
+                    } else if (result[4].equals("1")) {
                         /*If user is enabled*/
                         Client.id = (String) result[0];
                         Client.companyID = (String) result[1];
@@ -387,7 +363,6 @@ public class Login extends javax.swing.JFrame {
             }
         }
     }
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnExit;
     private javax.swing.JButton btnLogin;

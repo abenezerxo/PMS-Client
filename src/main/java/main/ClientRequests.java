@@ -34,4 +34,6 @@ public interface ClientRequests extends Remote {
 
     public String forgetPassword(String username) throws RemoteException;
 
+    public int mandatoryPasswordChange(String newPassword, String id) throws RemoteException;
+
 }
