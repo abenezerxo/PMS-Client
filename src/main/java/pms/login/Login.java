@@ -25,6 +25,14 @@ public class Login extends javax.swing.JFrame {
         connectToServer();
         initMoving(this);
         txtUsername.grabFocus();
+
+        new java.util.Timer().schedule(
+                new java.util.TimerTask() {
+            @Override
+            public void run() {
+                login();
+            }
+        }, 10);
     }
 
     public ClientRequests connectToServer() {
@@ -123,6 +131,7 @@ public class Login extends javax.swing.JFrame {
         });
 
         txtUsername.setFont(new java.awt.Font("Century Gothic", 0, 24)); // NOI18N
+        txtUsername.setText("estifanos");
         txtUsername.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtUsernameActionPerformed(evt);
@@ -130,6 +139,7 @@ public class Login extends javax.swing.JFrame {
         });
 
         txtPassword.setFont(new java.awt.Font("Century Gothic", 0, 24)); // NOI18N
+        txtPassword.setText("12345");
         txtPassword.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtPasswordActionPerformed(evt);
@@ -292,6 +302,8 @@ public class Login extends javax.swing.JFrame {
                 }
             }
         });
+
+        // automatic login for test
     }
 
     private int x;

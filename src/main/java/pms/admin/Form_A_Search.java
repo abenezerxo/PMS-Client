@@ -20,6 +20,7 @@ public class Form_A_Search extends javax.swing.JPanel {
     public static String password;
     public static String role;
     public static String status;
+    public static String mobile;
     public static String company;
 
     public static String id;
@@ -142,6 +143,7 @@ public class Form_A_Search extends javax.swing.JPanel {
                 return canEdit [columnIndex];
             }
         });
+        tblUserList.setRowHeight(35);
         tblUserList.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 tblUserListMouseClicked(evt);
@@ -344,19 +346,25 @@ public class Form_A_Search extends javax.swing.JPanel {
 
                 userName = (String) records[0];
                 fullName = (String) records[1];
-                role = (String) records[2];
-                status = (String) records[3];
-                company = (String) records[4];
-
-                id = (String) records[15];
+                company = (String) records[2];
+                role = (String) records[3];
+                status = (String) records[4];
+                status = status.equals("1") ? "Enabled" : "Disabled";
+                mobile = (String) records[5];
+                
+                id = (String) records[6];
                 System.out.println(fullName);
                 Form_A_Search_Detail.txtUserName.setText(userName);
-                Form_A_Search_Detail.txtPassword.setText(fullName);
-
+                Form_A_Search_Detail.txtFullName.setText(fullName);
+                Form_A_Search_Detail.txtMobile.setText(mobile);
+                Form_A_Search_Detail.comboRole.setSelectedItem(role);
+                Form_A_Search_Detail.comboCompany.setSelectedItem(company);
+                
+                
                 Form_A_Search_Detail.btnGroupEnableDisable.clearSelection();
-                if (status.equals("")) {
+                if (status.equals("Enabled")) {
                     Form_A_Search_Detail.rbEnabled.setSelected(true);
-                } else if (status.equals("")) {
+                } else if (status.equals("Disabled")) {
                     Form_A_Search_Detail.rbDisabled.setSelected(true);
                 } else {
                     Form_A_Search_Detail.btnGroupEnableDisable.clearSelection();

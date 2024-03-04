@@ -3,6 +3,8 @@ package pms.admin;
 import pms.form.*;
 import java.awt.Color;
 import java.rmi.RemoteException;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
@@ -12,11 +14,13 @@ import static main.Client.setForm;
 import pms.common.PopUp;
 
 public class Form_A_Search_Detail extends javax.swing.JPanel {
-
+    
     public Form_A_Search_Detail() {
         initComponents();
+        /* Insert all registered companies*/
+        fillCCombobox();
     }
-
+    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -39,6 +43,8 @@ public class Form_A_Search_Detail extends javax.swing.JPanel {
         jPanel5 = new javax.swing.JPanel();
         rbEnabled = new javax.swing.JRadioButton();
         rbDisabled = new javax.swing.JRadioButton();
+        jLabel10 = new javax.swing.JLabel();
+        txtMobile = new javax.swing.JTextField();
         jPanel2 = new javax.swing.JPanel();
         buttonPanel1 = new javax.swing.JPanel();
         btnDelete = new javax.swing.JButton();
@@ -63,6 +69,7 @@ public class Form_A_Search_Detail extends javax.swing.JPanel {
         jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel5.setText("Company");
 
+        txtUserName.setEditable(false);
         txtUserName.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
         txtUserName.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -86,13 +93,19 @@ public class Form_A_Search_Detail extends javax.swing.JPanel {
         jLabel7.setText("Role");
 
         comboRole.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
-        comboRole.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        comboRole.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Admin", "Agent" }));
+        comboRole.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                comboRoleActionPerformed(evt);
+            }
+        });
 
         jLabel8.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
         jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel8.setText("Password");
 
         txtPassword.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
+        txtPassword.setText("12345678");
         txtPassword.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtPasswordActionPerformed(evt);
@@ -100,7 +113,11 @@ public class Form_A_Search_Detail extends javax.swing.JPanel {
         });
 
         comboCompany.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
-        comboCompany.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        comboCompany.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                comboCompanyActionPerformed(evt);
+            }
+        });
 
         jLabel9.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
         jLabel9.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
@@ -129,41 +146,55 @@ public class Form_A_Search_Detail extends javax.swing.JPanel {
         });
         jPanel5.add(rbDisabled);
 
+        jLabel10.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
+        jLabel10.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jLabel10.setText("Mobile Number");
+
+        txtMobile.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
+        txtMobile.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtMobileActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
-                .addContainerGap()
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 369, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 369, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
+                            .addGroup(jPanel3Layout.createSequentialGroup()
+                                .addGap(0, 0, 0)
+                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 284, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 284, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(jLabel10, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 284, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(20, 20, 20)
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(txtFullName, javax.swing.GroupLayout.PREFERRED_SIZE, 385, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtUserName, javax.swing.GroupLayout.PREFERRED_SIZE, 255, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(txtUserName, javax.swing.GroupLayout.PREFERRED_SIZE, 255, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtMobile, javax.swing.GroupLayout.PREFERRED_SIZE, 262, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 284, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(59, 59, 59)
+                        .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, 302, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                         .addGroup(jPanel3Layout.createSequentialGroup()
-                            .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 369, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 284, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGap(18, 18, 18)
                             .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 385, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGroup(jPanel3Layout.createSequentialGroup()
-                            .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 369, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(18, 18, 18)
+                            .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 284, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(20, 20, 20)
                             .addComponent(comboRole, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                     .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 369, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(59, 59, 59)
-                        .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, 302, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(comboCompany, javax.swing.GroupLayout.PREFERRED_SIZE, 582, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(68, 68, 68))
+                        .addContainerGap()
+                        .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 289, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(comboCompany, javax.swing.GroupLayout.PREFERRED_SIZE, 632, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(103, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -172,27 +203,31 @@ public class Form_A_Search_Detail extends javax.swing.JPanel {
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtUserName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel4))
-                .addGap(17, 17, 17)
+                .addGap(20, 20, 20)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtFullName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel6))
-                .addGap(18, 18, 18)
+                .addGap(20, 20, 20)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel8))
-                .addGap(45, 45, 45)
+                .addGap(20, 20, 20)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtMobile, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel10))
+                .addGap(40, 40, 40)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(comboRole, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel7))
-                .addGap(18, 18, 18)
+                .addGap(20, 20, 20)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel9))
-                .addGap(50, 50, 50)
+                .addGap(40, 40, 40)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
                     .addComponent(comboCompany, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(99, 99, 99))
+                .addGap(40, 40, 40))
         );
 
         jPanel2.setBackground(new java.awt.Color(221, 240, 255));
@@ -249,7 +284,7 @@ public class Form_A_Search_Detail extends javax.swing.JPanel {
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(338, Short.MAX_VALUE)
+                .addContainerGap(340, Short.MAX_VALUE)
                 .addComponent(buttonPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(164, 164, 164)
                 .addComponent(btnX)
@@ -343,30 +378,33 @@ public class Form_A_Search_Detail extends javax.swing.JPanel {
     private void btnEditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditActionPerformed
         if (btnEdit.getText().equals("S A V E")) {
             System.out.println("save button cli");
-            if (txtFullName.getText().equals(Form_V_Search.fullName) && txtFullName.getText().equals(Form_V_Search.fullName)) {
+            
+            if (txtFullName.getText().equals(Form_A_Search.fullName) && txtPassword.getText().equals("12345678")
+                    && txtMobile.getText().equals(Form_A_Search.mobile) && comboRole.getSelectedItem().toString().equals(Form_A_Search.role)
+                    && getAccountStatus().equals(Form_A_Search.status) && comboCompany.getSelectedItem().toString().equals(Form_A_Search.company)) {
                 JOptionPane.showMessageDialog(this, "The information has not been changed", "Error", JOptionPane.WARNING_MESSAGE);
             } else {
-
+                String password = txtPassword.getText().equals("12345678") ? "0" : txtPassword.getText();
                 /*update statement*/
-//                int result;
-//                try {
-//                    result = Client.stub.updateARecord("parking_lot", new String[]{Client.companyID, Form_A_Search.parkingLotNo, txtUserName.getText(), txtDescription.getText()});
-//                    System.out.println(result);
-//                    if (result > 0) {
-//                        changeButtonToEdit();
-//                        setEditable(false);
-//                        PopUp.updateSuccess("Parking Lot");
-//                    } else {
-//                        PopUp.showErrorMessage("Something is not right.. Please try again !!!", "Error");
-//                    }
-//
-//                } catch (RemoteException ex) {
-//                    Logger.getLogger(Form_A_Search_Detail.class.getName()).log(Level.SEVERE, null, ex);
-//                    PopUp.connectionError();
-//                }
-
+                int result;
+                try {
+                    result = Client.stub.updateARecord("user", new String[]{txtFullName.getText(), password, txtMobile.getText(), comboRole.getSelectedItem().toString(),
+                        getAccountStatus(), comboCompany.getSelectedItem().toString(), Form_A_Search.id});
+                    System.out.println(result);
+                    if (result > 0) {
+                        changeButtonToEdit();
+                        setEditable(false);
+                        PopUp.updateSuccess("Users");
+                    } else {
+                        PopUp.showErrorMessage("Something is not right.. Please try again !!!", "Error");
+                    }
+                    
+                } catch (RemoteException ex) {
+                    Logger.getLogger(Form_A_Search_Detail.class.getName()).log(Level.SEVERE, null, ex);
+                    PopUp.connectionError();
+                }
             }
-
+            
         } else {
             setEditable(true);
             changeButtonToSave();
@@ -377,7 +415,7 @@ public class Form_A_Search_Detail extends javax.swing.JPanel {
         changeBgToWhite();
         setBtnEnabled(true);
         changeButtonToEdit();
-        setForm(parkingSearch);
+        setForm(Client.userSearch);
     }//GEN-LAST:event_btnXActionPerformed
 
     private void txtUserNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtUserNameActionPerformed
@@ -387,31 +425,31 @@ public class Form_A_Search_Detail extends javax.swing.JPanel {
     private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
         if (btnDelete.getText().equals("C A N C E L")) {
             changeButtonToEdit();
-            setForm(parkingSearch);
+            setForm(Client.userSearch);
         } else if (btnDelete.getText().equals("D E L E T E")) {
-//            int choice = JOptionPane.showConfirmDialog(this, "Are you sure you want to delete " + Form_A_Search.parkingLotNo + " - " + Form_A_Search.description, "Delete Confirmation", JOptionPane.YES_NO_OPTION);
-//            if (choice == JOptionPane.YES_OPTION) {
-//                try {
-//                    /*Delete sql*/
-//                    int result = Client.stub.deleteARecord("parking_lot", new String[]{Client.companyID, Form_A_Search.parkingLotNo});
-//                    System.out.println(result);
-//                    if (result > 0) {
-//                        changeBgToRed();
-//                        btnEdit.setEnabled(false);
-//                        btnDelete.setEnabled(false);
-//                        JOptionPane.showMessageDialog(driverPanel, "Record has been Deleted", "Record Deleted", JOptionPane.INFORMATION_MESSAGE);
-//                    } else {
-//                        JOptionPane.showMessageDialog(this, "Something is not right.. Please try again !!!", "Error", JOptionPane.WARNING_MESSAGE);
-//                    }
-//
-//                } catch (Exception ex) {
-//                    Logger.getLogger(Form_A_Search_Detail.class.getName()).log(Level.SEVERE, null, ex);
-//                }
-//
-//            } else {
-//
-//            }
-
+            if (PopUp.deleteConfirmation(txtUserName.getText()) == JOptionPane.YES_OPTION) {
+                try {
+                    /*Delete sql*/
+                    int result = Client.stub.deleteARecord("user", new String[]{Form_A_Search.id});
+                    System.out.println(result);
+                    if (result > 0) {
+                        changeBgToRed();
+                        btnEdit.setEnabled(false);
+                        btnDelete.setEnabled(false);
+                        JOptionPane.showMessageDialog(driverPanel, "Record has been Deleted", "Record Deleted", JOptionPane.INFORMATION_MESSAGE);
+                        PopUp.deleteSuccess(Form_A_Search.fullName + "'s Info");
+                    } else {
+                        PopUp.showGenericError();
+                    }
+                    
+                } catch (Exception ex) {
+                    Logger.getLogger(Form_A_Search_Detail.class.getName()).log(Level.SEVERE, null, ex);
+                }
+                
+            } else {
+                
+            }
+            
         }
     }//GEN-LAST:event_btnDeleteActionPerformed
 
@@ -431,16 +469,32 @@ public class Form_A_Search_Detail extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtPasswordActionPerformed
 
+    private void txtMobileActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtMobileActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtMobileActionPerformed
+
+    private void comboRoleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboRoleActionPerformed
+        // TODO add your handling code here:
+        String selectedValue = comboRole.getSelectedItem().toString();
+        System.out.println(selectedValue);
+    }//GEN-LAST:event_comboRoleActionPerformed
+
+    private void comboCompanyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboCompanyActionPerformed
+        // TODO add your handling code here:
+        String selectedValue = comboCompany.getSelectedItem().toString();
+        System.out.println(selectedValue);
+    }//GEN-LAST:event_comboCompanyActionPerformed
+    
     private void changeButtonToEdit() {
         btnEdit.setText("E D I T");
         btnDelete.setText("D E L E T E");
     }
-
+    
     private void changeButtonToSave() {
         btnEdit.setText("S A V E");
         btnDelete.setText("C A N C E L");
     }
-
+    
     public void changeBgToRed() {
         txtUserName.setBackground(new Color(252, 82, 82));
         txtFullName.setBackground(new Color(252, 82, 82));
@@ -448,7 +502,7 @@ public class Form_A_Search_Detail extends javax.swing.JPanel {
         comboRole.setBackground(new Color(252, 82, 82));
         comboCompany.setBackground(new Color(252, 82, 82));
     }
-
+    
     public void changeBgToWhite() {
         txtUserName.setBackground(Color.WHITE);
         txtFullName.setBackground(Color.WHITE);
@@ -456,19 +510,48 @@ public class Form_A_Search_Detail extends javax.swing.JPanel {
         comboRole.setBackground(Color.WHITE);
         comboCompany.setBackground(Color.WHITE);
     }
-
+    
     private void setBtnEnabled(boolean x) {
         btnEdit.setEnabled(x);
         btnDelete.setEnabled(x);
     }
-
+    
     public static void setEditable(boolean x) {
-        txtUserName.setEditable(x);
         txtFullName.setEditable(x);
         txtPassword.setEditable(x);
-        comboRole.setEditable(x);
-        comboCompany.setEditable(x);
+        txtMobile.setEditable(x);
+        comboRole.setEnabled(x);
+        rbDisabled.setEnabled(x);
+        rbEnabled.setEnabled(x);
+        comboCompany.setEnabled(x);
     }
+    
+    public void fillCCombobox() {
+        try {
+            // Bring all parking companies
+            ArrayList<Object> allCompanies = Client.stub.getRows("company_all", null, 1, 10000);
+            if (allCompanies.isEmpty()) {
+            } else {
+                for (Object comp : allCompanies) {
+                    comboCompany.addItem(((Object[]) comp)[0].toString());
+                }
+            }
+            
+        } catch (RemoteException ex) {
+            Logger.getLogger(Form_V_In.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
+    private String getAccountStatus() {
+        if (rbEnabled.isSelected()) {
+            return "Enabled";
+        } else if (rbDisabled.isSelected()) {
+            return "Disabled";
+        } else {
+            return "";
+        }
+    }
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnDelete;
     private javax.swing.JButton btnEdit;
@@ -478,6 +561,7 @@ public class Form_A_Search_Detail extends javax.swing.JPanel {
     public static javax.swing.JComboBox<String> comboCompany;
     public static javax.swing.JComboBox<String> comboRole;
     private javax.swing.JPanel driverPanel;
+    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
@@ -495,6 +579,7 @@ public class Form_A_Search_Detail extends javax.swing.JPanel {
     public static javax.swing.JRadioButton rbDisabled;
     public static javax.swing.JRadioButton rbEnabled;
     public static javax.swing.JTextField txtFullName;
+    public static javax.swing.JTextField txtMobile;
     public static javax.swing.JPasswordField txtPassword;
     public static javax.swing.JTextField txtUserName;
     // End of variables declaration//GEN-END:variables

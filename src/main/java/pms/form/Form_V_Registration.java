@@ -486,7 +486,7 @@ public class Form_V_Registration extends javax.swing.JPanel {
                     JOptionPane.showMessageDialog(driverPanel, "Client Information Registered", "Success Registration", JOptionPane.INFORMATION_MESSAGE);
                     clearForm();
                 } else {
-                    JOptionPane.showMessageDialog(driverPanel, "Something Went Wrong please try again" + " -- " + txtDateOfBirth.getText(), "Error", JOptionPane.WARNING_MESSAGE);
+                    JOptionPane.showMessageDialog(driverPanel, "Something Went Wrong please try again", "Error", JOptionPane.WARNING_MESSAGE);
                 }
             }
 

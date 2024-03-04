@@ -11,7 +11,9 @@ import java.util.logging.Logger;
 import javax.swing.JComponent;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import pms.admin.Form_A_Registration;
 import pms.admin.Form_A_Search;
+import pms.admin.Form_C_Search;
 import pms.common.PopUp;
 import pms.event.EventMenuSelected;
 import pms.form.Form_Home;
@@ -38,10 +40,10 @@ public class Client extends javax.swing.JFrame /*implements Serializable*/ {
     public static Form_P_Search parkingSearch;
 
     public static Form_Home adminDashboard;
-    public static Form_A_Search userRegistration;
+    public static Form_A_Registration userRegistration;
     public static Form_A_Search userSearch;
     public static Form_A_Search companyRegistration;
-    public static Form_A_Search companySearch;
+    public static Form_C_Search companySearch;
 
     public static String id;
     public static String companyID;
@@ -67,10 +69,10 @@ public class Client extends javax.swing.JFrame /*implements Serializable*/ {
             /*get In Vehicles + Out Vehicles + in & out Vehicles count for today*/
             if (userRole.equals("Admin")) {
                 adminDashboard = new Form_Home(stub.getDashboardInfo(1));
-                userRegistration = new Form_A_Search();
+                userRegistration = new Form_A_Registration();
                 userSearch = new Form_A_Search();
                 companyRegistration = new Form_A_Search();
-                companySearch = new Form_A_Search();
+                companySearch = new Form_C_Search();
 
                 setForm(adminDashboard);
 
@@ -91,7 +93,7 @@ public class Client extends javax.swing.JFrame /*implements Serializable*/ {
 
             /*Construct the header*/
             mainHeader.setlbGreeting(stub.greeting((int) LocalDateTime.now().getHour()));
-            mainHeader.setlbFirstName("Abenezer");
+            mainHeader.setlbFirstName(username);
 
         } catch (Exception e) {
             e.printStackTrace();
@@ -116,7 +118,7 @@ public class Client extends javax.swing.JFrame /*implements Serializable*/ {
                         case 6:
                             setForm(companyRegistration);
                             break;
-                        case 7:
+                        case 8:
                             setForm(companySearch);
                             break;
                         case 10:
