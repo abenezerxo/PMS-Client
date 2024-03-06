@@ -13,7 +13,7 @@ import pms.pagination.style.PaginationItemRenderStyle1;
 
 public class Form_C_Search extends javax.swing.JPanel {
 
-    public static Form_A_Search_Detail companyDetail = new Form_A_Search_Detail();
+    public static Form_C_Search_Detail companyDetail = new Form_C_Search_Detail();
 
     public static String companyName;
     public static String tinNumber;
@@ -37,7 +37,7 @@ public class Form_C_Search extends javax.swing.JPanel {
         });
         // hide ID column from the vehicle table
         TableColumnModel tcm = tblCompanyList.getColumnModel();
-        tcm.removeColumn(tcm.getColumn(4));
+        tcm.removeColumn(tcm.getColumn(6));
     }
 
     private void loadDate(int page) {
@@ -72,8 +72,6 @@ public class Form_C_Search extends javax.swing.JPanel {
         date = new pms.component.DateChooser();
         jScrollBar1 = new javax.swing.JScrollBar();
         outerPanel = new javax.swing.JPanel();
-        lbHeader = new javax.swing.JLabel();
-        lbDriver = new javax.swing.JLabel();
         driverPanel = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
@@ -89,15 +87,10 @@ public class Form_C_Search extends javax.swing.JPanel {
         txtPhone = new javax.swing.JTextField();
         btnSearch = new javax.swing.JButton();
         buttonPanel = new javax.swing.JPanel();
+        lbHeader = new javax.swing.JLabel();
+        lbDriver = new javax.swing.JLabel();
 
         date.setForeground(new java.awt.Color(85, 146, 85));
-
-        lbHeader.setFont(new java.awt.Font("Century Gothic", 0, 36)); // NOI18N
-        lbHeader.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lbHeader.setText("P a r k i n g   F a c i l i t y   S e a r c h");
-
-        lbDriver.setFont(new java.awt.Font("Century Gothic", 0, 24)); // NOI18N
-        lbDriver.setText("  P a r k i n g  C o m p a n i e s");
 
         driverPanel.setBackground(new java.awt.Color(232, 245, 255));
 
@@ -131,11 +124,11 @@ public class Form_C_Search extends javax.swing.JPanel {
 
             },
             new String [] {
-                "NO#", "Company Name", "Tin Number", "Address", "Fee/hr", "Phone#", "id"
+                "NO#", "Company Name", "Tin Number", "Address", "Fee/hr", "Phone#", "ID"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, true, true
+                false, false, false, false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -166,20 +159,21 @@ public class Form_C_Search extends javax.swing.JPanel {
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jScrollPane1)))
                 .addContainerGap())
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1027, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(18, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                .addGap(0, 15, Short.MAX_VALUE)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 385, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap()
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 475, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jPanel2.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER, 10, 5));
@@ -239,20 +233,20 @@ public class Form_C_Search extends javax.swing.JPanel {
         driverPanel.setLayout(driverPanelLayout);
         driverPanelLayout.setHorizontalGroup(
             driverPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, driverPanelLayout.createSequentialGroup()
-                .addContainerGap(17, Short.MAX_VALUE)
-                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, 1074, Short.MAX_VALUE)
+            .addGroup(driverPanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
-            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         driverPanelLayout.setVerticalGroup(
             driverPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(driverPanelLayout.createSequentialGroup()
                 .addGap(21, 21, 21)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addContainerGap(15, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout buttonPanelLayout = new javax.swing.GroupLayout(buttonPanel);
@@ -273,49 +267,58 @@ public class Form_C_Search extends javax.swing.JPanel {
             .addGroup(outerPanelLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(driverPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(17, Short.MAX_VALUE))
+                .addContainerGap(20, Short.MAX_VALUE))
             .addGroup(outerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(outerPanelLayout.createSequentialGroup()
-                    .addContainerGap()
-                    .addGroup(outerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(lbDriver, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(lbHeader, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(outerPanelLayout.createSequentialGroup()
-                            .addGap(354, 354, 354)
-                            .addComponent(buttonPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(0, 292, Short.MAX_VALUE)))
-                    .addContainerGap()))
+                    .addGap(360, 360, 360)
+                    .addComponent(buttonPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(298, Short.MAX_VALUE)))
         );
         outerPanelLayout.setVerticalGroup(
             outerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(outerPanelLayout.createSequentialGroup()
-                .addGap(110, 110, 110)
+                .addContainerGap()
                 .addComponent(driverPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(outerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(outerPanelLayout.createSequentialGroup()
-                    .addContainerGap()
-                    .addComponent(lbHeader)
-                    .addGap(18, 18, 18)
-                    .addComponent(lbDriver)
-                    .addGap(679, 679, 679)
+                    .addGap(779, 779, 779)
                     .addComponent(buttonPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addContainerGap()))
         );
+
+        lbHeader.setFont(new java.awt.Font("Century Gothic", 0, 36)); // NOI18N
+        lbHeader.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lbHeader.setText("P a r k i n g   F a c i l i t y   S e a r c h");
+
+        lbDriver.setFont(new java.awt.Font("Century Gothic", 0, 24)); // NOI18N
+        lbDriver.setText("  P a r k i n g  C o m p a n i e s");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(14, Short.MAX_VALUE)
-                .addComponent(outerPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(15, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lbHeader, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(0, 20, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lbDriver, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(outerPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 0, Short.MAX_VALUE)))))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(12, 12, 12)
+                .addComponent(lbHeader)
+                .addGap(20, 20, 20)
+                .addComponent(lbDriver)
+                .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(outerPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 663, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
     }// </editor-fold>//GEN-END:initComponents
@@ -337,11 +340,11 @@ public class Form_C_Search extends javax.swing.JPanel {
         // When a record is clicked 
         DefaultTableModel model = (DefaultTableModel) tblCompanyList.getModel();
         int selectedRowIndex = tblCompanyList.getSelectedRow();
-        id = model.getValueAt(selectedRowIndex, 4).toString();
-        String[] inputs = new String[]{Client.username, txtCompanyName.getText(), txtTin.getText(), txtPhone.getText(), id};
+        id = model.getValueAt(selectedRowIndex, 6).toString();
+        String[] inputs = new String[]{txtCompanyName.getText(), txtTin.getText(), txtPhone.getText(), id};
 
         try {
-            ArrayList<Object> arrayList = Client.stub.getRows("user", inputs, -1, 1);
+            ArrayList<Object> arrayList = Client.stub.getRows("company", inputs, -1, 1);
             Form_A_Search_Detail.setEditable(false);
             for (Object row : arrayList) {
                 Object[] records = (Object[]) row;
@@ -353,17 +356,17 @@ public class Form_C_Search extends javax.swing.JPanel {
                 feePerHr = (String) records[4];
                 phoneNo = (String) records[5];
                 
-                id = (String) records[6];
                 System.out.println(companyName);
                 
                 Form_C_Search_Detail.txtCompanyName.setText(companyName);
                 Form_C_Search_Detail.txtTin.setText(tinNumber);
                 Form_C_Search_Detail.txtAddress1.setText(address1);
                 Form_C_Search_Detail.txtAddress2.setText(address2);
-                Form_C_Search_Detail.spinFeePerHr.setValue(Integer.parseInt(feePerHr));
+                Form_C_Search_Detail.spinFeePerHr.setValue(Double.parseDouble(feePerHr));
                 Form_C_Search_Detail.txtPhone.setText((phoneNo));
 
             }
+            Form_C_Search_Detail.setEditable(false);
             Client.setForm(companyDetail);
         } catch (RemoteException ex) {
             Logger.getLogger(Form_C_Search.class.getName()).log(Level.SEVERE, null, ex);

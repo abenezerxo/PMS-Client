@@ -30,7 +30,7 @@ public class Login extends javax.swing.JFrame {
                 new java.util.TimerTask() {
             @Override
             public void run() {
-                login();
+                //login();
             }
         }, 10);
     }

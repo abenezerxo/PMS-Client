@@ -23,7 +23,6 @@ public class Form_C_Search_Detail extends javax.swing.JPanel {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
-        java.awt.GridBagConstraints gridBagConstraints;
 
         btnGroupEnableDisable = new javax.swing.ButtonGroup();
         driverPanel = new javax.swing.JPanel();
@@ -41,6 +40,7 @@ public class Form_C_Search_Detail extends javax.swing.JPanel {
         jLabel11 = new javax.swing.JLabel();
         txtPhone = new javax.swing.JTextField();
         spinFeePerHr = new javax.swing.JSpinner();
+        jLabel12 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         buttonPanel1 = new javax.swing.JPanel();
         btnDelete = new javax.swing.JButton();
@@ -118,6 +118,11 @@ public class Form_C_Search_Detail extends javax.swing.JPanel {
         });
 
         spinFeePerHr.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
+        spinFeePerHr.setModel(new javax.swing.SpinnerNumberModel(1, 1, null, 1));
+
+        jLabel12.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
+        jLabel12.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        jLabel12.setText("ETB");
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -144,7 +149,9 @@ public class Form_C_Search_Detail extends javax.swing.JPanel {
                                     .addComponent(txtPhone)))
                             .addGroup(jPanel3Layout.createSequentialGroup()
                                 .addGap(18, 18, 18)
-                                .addComponent(spinFeePerHr, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addComponent(spinFeePerHr, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addGap(343, 343, 343)
                         .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, 302, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -176,7 +183,8 @@ public class Form_C_Search_Detail extends javax.swing.JPanel {
                 .addGap(29, 29, 29)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(spinFeePerHr, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel10))
+                    .addComponent(jLabel10)
+                    .addComponent(jLabel12))
                 .addGap(60, 60, 60)
                 .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0))
@@ -220,7 +228,7 @@ public class Form_C_Search_Detail extends javax.swing.JPanel {
                 .addGroup(buttonPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnEdit)
                     .addComponent(btnDelete))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(31, Short.MAX_VALUE))
         );
 
         btnX.setFont(new java.awt.Font("Century Gothic", 1, 24)); // NOI18N
@@ -236,22 +244,22 @@ public class Form_C_Search_Detail extends javax.swing.JPanel {
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(315, Short.MAX_VALUE)
                 .addComponent(buttonPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(97, 97, 97)
+                .addGap(98, 98, 98)
                 .addComponent(btnX)
-                .addGap(132, 132, 132))
+                .addGap(131, 131, 131))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(34, 34, 34)
-                .addComponent(btnX)
-                .addContainerGap(44, Short.MAX_VALUE))
-            .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(23, 23, 23)
                 .addComponent(buttonPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnX)
+                .addGap(37, 37, 37))
         );
 
         javax.swing.GroupLayout driverPanelLayout = new javax.swing.GroupLayout(driverPanel);
@@ -280,13 +288,7 @@ public class Form_C_Search_Detail extends javax.swing.JPanel {
         lbHeader.setFont(new java.awt.Font("Century Gothic", 0, 36)); // NOI18N
         lbHeader.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lbHeader.setText("P a r k i n g   F a c i l i t y  M a n a g e m e n t");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 0;
-        gridBagConstraints.ipadx = 767;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(26, 0, 29, 0);
-        jPanel4.add(lbHeader, gridBagConstraints);
+        jPanel4.add(lbHeader, new java.awt.GridBagConstraints());
 
         jPanel1.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT));
 
@@ -317,9 +319,9 @@ public class Form_C_Search_Detail extends javax.swing.JPanel {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, 0)
+                .addGap(12, 12, 12)
+                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(driverPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -339,25 +341,24 @@ public class Form_C_Search_Detail extends javax.swing.JPanel {
                     && txtPhone.getText().equals(Form_C_Search.phoneNo)) {
                 JOptionPane.showMessageDialog(this, "The information has not been changed", "Error", JOptionPane.WARNING_MESSAGE);
             } else {
-//                String password = txtPassword.getText().equals("12345678") ? "0" : txtPassword.getText();
-//                /*update statement*/
-//                int result;
-//                try {
-//                    result = Client.stub.updateARecord("user", new String[]{txtCompanyName.getText(), password, txtMobile.getText(), comboRole.getSelectedItem().toString(),
-//                        getAccountStatus(), comboCompany.getSelectedItem().toString(), Form_A_Search.id});
-//                    System.out.println(result);
-//                    if (result > 0) {
-//                        changeButtonToEdit();
-//                        setEditable(false);
-//                        PopUp.updateSuccess("Users");
-//                    } else {
-//                        PopUp.showErrorMessage("Something is not right.. Please try again !!!", "Error");
-//                    }
-//                    
-//                } catch (RemoteException ex) {
-//                    Logger.getLogger(Form_C_Search_Detail.class.getName()).log(Level.SEVERE, null, ex);
-//                    PopUp.connectionError();
-//                }
+                /*update statement*/
+                int result;
+                try {
+                    result = Client.stub.updateARecord("company", new String[]{txtCompanyName.getText(), txtTin.getText(), txtAddress1.getText(), txtAddress2.getText(), 
+                        txtPhone.getText(), spinFeePerHr.getValue().toString(), Form_C_Search.id});
+                    System.out.println(result);
+                    if (result > 0) {
+                        changeButtonToEdit();
+                        setEditable(false);
+                        PopUp.updateSuccess("Company");
+                    } else {
+                        PopUp.showGenericError();
+                    }
+                    
+                } catch (RemoteException ex) {
+                    Logger.getLogger(Form_C_Search_Detail.class.getName()).log(Level.SEVERE, null, ex);
+                    PopUp.connectionError();
+                }
             }
 
         } else {
@@ -370,36 +371,36 @@ public class Form_C_Search_Detail extends javax.swing.JPanel {
         changeBgToWhite();
         setBtnEnabled(true);
         changeButtonToEdit();
-        setForm(Client.userSearch);
+        setForm(Client.companySearch);
     }//GEN-LAST:event_btnXActionPerformed
 
     private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
         if (btnDelete.getText().equals("C A N C E L")) {
             changeButtonToEdit();
-            setForm(Client.userSearch);
+            setForm(Client.companySearch);
         } else if (btnDelete.getText().equals("D E L E T E")) {
-//            if (PopUp.deleteConfirmation(txtUserName.getText()) == JOptionPane.YES_OPTION) {
-//                try {
-//                    /*Delete sql*/
-//                    int result = Client.stub.deleteARecord("user", new String[]{Form_A_Search.id});
-//                    System.out.println(result);
-//                    if (result > 0) {
-//                        changeBgToRed();
-//                        btnEdit.setEnabled(false);
-//                        btnDelete.setEnabled(false);
-//                        JOptionPane.showMessageDialog(driverPanel, "Record has been Deleted", "Record Deleted", JOptionPane.INFORMATION_MESSAGE);
-//                        PopUp.deleteSuccess(Form_A_Search.fullName + "'s Info");
-//                    } else {
-//                        PopUp.showGenericError();
-//                    }
-//                    
-//                } catch (Exception ex) {
-//                    Logger.getLogger(Form_C_Search_Detail.class.getName()).log(Level.SEVERE, null, ex);
-//                }
-//                
-//            } else {
-//                
-//            }
+            if (PopUp.deleteConfirmation(txtCompanyName.getText()) == JOptionPane.YES_OPTION) {
+                try {
+                    /*Delete sql*/
+                    int result = Client.stub.deleteARecord("company", new String[]{Form_C_Search.id});
+                    System.out.println(result);
+                    if (result > 0) {
+                        changeBgToRed();
+                        btnEdit.setEnabled(false);
+                        btnDelete.setEnabled(false);
+                        JOptionPane.showMessageDialog(driverPanel, "Record has been Deleted", "Record Deleted", JOptionPane.INFORMATION_MESSAGE);
+                        PopUp.deleteSuccess(Form_C_Search.companyName + " Company");
+                    } else {
+                        PopUp.showGenericError();
+                    }
+
+                } catch (Exception ex) {
+                    Logger.getLogger(Form_C_Search_Detail.class.getName()).log(Level.SEVERE, null, ex);
+                }
+
+            } else {
+
+            }
 
         }
     }//GEN-LAST:event_btnDeleteActionPerformed
@@ -443,13 +444,22 @@ public class Form_C_Search_Detail extends javax.swing.JPanel {
         txtPhone.setBackground(new Color(252, 82, 82));
     }
 
-    public void changeBgToWhite() {
+    public static void changeBgToWhite() {
         txtCompanyName.setBackground(Color.WHITE);
         txtTin.setBackground(Color.WHITE);
         txtAddress1.setBackground(Color.WHITE);
         txtAddress2.setBackground(Color.WHITE);
         spinFeePerHr.setBackground(Color.WHITE);
         txtPhone.setBackground(Color.WHITE);
+    }
+
+    public static void changeBgToGray() {
+        txtCompanyName.setBackground(Color.lightGray);
+        txtTin.setBackground(Color.lightGray);
+        txtAddress1.setBackground(Color.lightGray);
+        txtAddress2.setBackground(Color.lightGray);
+        spinFeePerHr.setBackground(Color.lightGray);
+        txtPhone.setBackground(Color.lightGray);
     }
 
     private void setBtnEnabled(boolean x) {
@@ -464,6 +474,11 @@ public class Form_C_Search_Detail extends javax.swing.JPanel {
         txtAddress2.setEditable(x);
         spinFeePerHr.setEnabled(x);
         txtPhone.setEditable(x);
+        if(x){
+            changeBgToWhite();
+        } else {
+            changeBgToGray();
+        }
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -475,6 +490,7 @@ public class Form_C_Search_Detail extends javax.swing.JPanel {
     private javax.swing.JPanel driverPanel;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;

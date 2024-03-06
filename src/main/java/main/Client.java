@@ -11,8 +11,10 @@ import java.util.logging.Logger;
 import javax.swing.JComponent;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import pms.admin.Form_A_Home;
 import pms.admin.Form_A_Registration;
 import pms.admin.Form_A_Search;
+import pms.admin.Form_C_Registration;
 import pms.admin.Form_C_Search;
 import pms.common.PopUp;
 import pms.event.EventMenuSelected;
@@ -39,10 +41,10 @@ public class Client extends javax.swing.JFrame /*implements Serializable*/ {
     private Form_P_Registration parkingRegistration;
     public static Form_P_Search parkingSearch;
 
-    public static Form_Home adminDashboard;
+    public static Form_A_Home adminDashboard;
     public static Form_A_Registration userRegistration;
     public static Form_A_Search userSearch;
-    public static Form_A_Search companyRegistration;
+    public static Form_C_Registration companyRegistration;
     public static Form_C_Search companySearch;
 
     public static String id;
@@ -68,17 +70,17 @@ public class Client extends javax.swing.JFrame /*implements Serializable*/ {
 
             /*get In Vehicles + Out Vehicles + in & out Vehicles count for today*/
             if (userRole.equals("Admin")) {
-                adminDashboard = new Form_Home(stub.getDashboardInfo(1));
+                adminDashboard = new Form_A_Home(stub.getDashboardAdmin(Integer.parseInt(companyID)));
                 userRegistration = new Form_A_Registration();
                 userSearch = new Form_A_Search();
-                companyRegistration = new Form_A_Search();
+                companyRegistration = new Form_C_Registration();
                 companySearch = new Form_C_Search();
 
                 setForm(adminDashboard);
 
             } else {
                 /* Create Agent Pages*/
-                dashboard = new Form_Home(stub.getDashboardInfo(1));
+                dashboard = new Form_Home(stub.getDashboardInfo(Integer.parseInt(companyID)));
                 vehicleRegistration = new Form_V_Registration();
                 vehicleSearch = new Form_V_Search();
                 vehicleIn = new Form_V_In();
@@ -107,21 +109,27 @@ public class Client extends javax.swing.JFrame /*implements Serializable*/ {
                 if (userRole.equals("Admin")) {
                     switch (index) {
                         case 0:
+                            try {
+                                adminDashboard = new Form_A_Home(stub.getDashboardAdmin(Integer.parseInt(companyID)));
+                            } catch (RemoteException ex) {
+                                Logger.getLogger(Client.class.getName()).log(Level.SEVERE, null, ex);
+                            }
                             setForm(adminDashboard);
                             break;
+
                         case 3:
                             setForm(userRegistration);
                             break;
                         case 4:
                             setForm(userSearch);
                             break;
-                        case 6:
+                        case 7:
                             setForm(companyRegistration);
                             break;
                         case 8:
                             setForm(companySearch);
                             break;
-                        case 10:
+                        case 11:
                             if (PopUp.confirmationDialog("Do you want to logout?", "Logout") == JOptionPane.YES_OPTION) {
                                 try {
                                     new Login().setVisible(true);
@@ -163,7 +171,7 @@ public class Client extends javax.swing.JFrame /*implements Serializable*/ {
                         case 14:
                             setForm(parkingSearch);
                             break;
-                        case 18:
+                        case 17:
                             if (PopUp.confirmationDialog("Do you want to logout?", "Logout") == JOptionPane.YES_OPTION) {
                                 try {
                                     new Login().setVisible(true);

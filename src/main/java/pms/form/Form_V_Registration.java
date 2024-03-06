@@ -158,7 +158,6 @@ public class Form_V_Registration extends javax.swing.JPanel {
         txtMobile.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
 
         txtDateOfBirth.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
-        txtDateOfBirth.setText("");
         txtDateOfBirth.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtDateOfBirthActionPerformed(evt);
