@@ -53,7 +53,7 @@ public class Form_V_Out_Advice extends javax.swing.JPanel {
         lbDriver15 = new javax.swing.JLabel();
         lbDriver27 = new javax.swing.JLabel();
         lbFeePerHr = new javax.swing.JLabel();
-        lbDriver16 = new javax.swing.JLabel();
+        lbCalulcation = new javax.swing.JLabel();
         lbDriver26 = new javax.swing.JLabel();
         lbFeeBeforeTax = new javax.swing.JLabel();
         jPanel13 = new javax.swing.JPanel();
@@ -211,10 +211,10 @@ public class Form_V_Out_Advice extends javax.swing.JPanel {
         lbFeePerHr.setText("8.5 ETB");
         jPanel12.add(lbFeePerHr);
 
-        lbDriver16.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
-        lbDriver16.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        lbDriver16.setText("15 x 8.5");
-        jPanel12.add(lbDriver16);
+        lbCalulcation.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
+        lbCalulcation.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        lbCalulcation.setText("15 x 8.5");
+        jPanel12.add(lbCalulcation);
 
         lbDriver26.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
         lbDriver26.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -391,6 +391,7 @@ public class Form_V_Out_Advice extends javax.swing.JPanel {
             if (Client.stub.updateARecord("exit_parking_lot", new String[]{Client.companyID, Form_V_Out.parkingEntryId}) > 0) {
                 PopUp.infoDialog("Transaction has completed Successfully! ", "Success");
                 /*Redirecto to Vehicle Out Page */
+                Client.vehicleOut = new Form_V_Out();
                 Client.setForm(Client.vehicleOut);
             } else {
                 PopUp.showGenericError();
@@ -421,13 +422,13 @@ public class Form_V_Out_Advice extends javax.swing.JPanel {
     private javax.swing.JPanel jPanel9;
     public static javax.swing.JLabel lbAddress1;
     public static javax.swing.JLabel lbAddress2;
+    public static javax.swing.JLabel lbCalulcation;
     public static javax.swing.JLabel lbCompanyName;
     public static javax.swing.JLabel lbDateTime;
     private javax.swing.JLabel lbDriver1;
     private javax.swing.JLabel lbDriver10;
     private javax.swing.JLabel lbDriver12;
     private javax.swing.JLabel lbDriver15;
-    private javax.swing.JLabel lbDriver16;
     private javax.swing.JLabel lbDriver18;
     private javax.swing.JLabel lbDriver20;
     private javax.swing.JLabel lbDriver22;

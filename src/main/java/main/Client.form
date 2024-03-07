@@ -46,20 +46,21 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
                   <Component id="menu" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace min="6" pref="6" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="mainHeader" alignment="0" max="32767" attributes="0"/>
-                      <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="6" pref="6" max="-2" attributes="0"/>
-                          <Component id="mainPanel" max="32767" attributes="0"/>
+                      <Group type="102" attributes="0">
+                          <Component id="mainHeader" min="-2" pref="1125" max="-2" attributes="0"/>
+                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                       </Group>
+                      <Component id="mainPanel" pref="1139" max="32767" attributes="0"/>
                   </Group>
               </Group>
           </Group>
         </DimensionLayout>
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
-              <Component id="menu" alignment="0" pref="833" max="32767" attributes="0"/>
-              <Group type="102" alignment="0" attributes="0">
+              <Component id="menu" pref="833" max="32767" attributes="0"/>
+              <Group type="102" attributes="0">
                   <Component id="mainHeader" min="-2" pref="79" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="mainPanel" max="32767" attributes="0"/>
@@ -69,8 +70,6 @@
       </Layout>
       <SubComponents>
         <Component class="pms.component.Menu" name="menu">
-        </Component>
-        <Component class="pms.component.Header" name="mainHeader">
         </Component>
         <Container class="javax.swing.JPanel" name="mainPanel">
           <Properties>
@@ -82,6 +81,8 @@
 
           <Layout class="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout"/>
         </Container>
+        <Component class="pms.component.Header" name="mainHeader">
+        </Component>
       </SubComponents>
     </Container>
   </SubComponents>

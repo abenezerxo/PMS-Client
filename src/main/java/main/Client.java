@@ -51,6 +51,7 @@ public class Client extends javax.swing.JFrame /*implements Serializable*/ {
     public static String companyID;
     public static String username;
     public static String userRole = "Admin";
+    public static String companyName;
 
     /* Define Ip address and Port number of the Server */
     private static final String ip = "127.0.0.1";
@@ -145,6 +146,11 @@ public class Client extends javax.swing.JFrame /*implements Serializable*/ {
                 } else {
                     switch (index) {
                         case 0:
+                            try {
+                                dashboard = new Form_Home(stub.getDashboardInfo(Integer.parseInt(companyID)));
+                            } catch (Exception ex) {
+                                Logger.getLogger(Client.class.getName()).log(Level.SEVERE, null, ex);
+                            }
                             setForm(dashboard);
                             break;
                         case 3:
@@ -204,8 +210,8 @@ public class Client extends javax.swing.JFrame /*implements Serializable*/ {
 
         panelBorder1 = new pms.swing.PanelBorder();
         menu = new pms.component.Menu();
-        mainHeader = new pms.component.Header();
         mainPanel = new javax.swing.JPanel();
+        mainHeader = new pms.component.Header();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -221,11 +227,12 @@ public class Client extends javax.swing.JFrame /*implements Serializable*/ {
             panelBorder1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelBorder1Layout.createSequentialGroup()
                 .addComponent(menu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(6, 6, 6)
                 .addGroup(panelBorder1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(mainHeader, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(panelBorder1Layout.createSequentialGroup()
-                        .addGap(6, 6, 6)
-                        .addComponent(mainPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                        .addComponent(mainHeader, javax.swing.GroupLayout.PREFERRED_SIZE, 1125, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addComponent(mainPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 1139, Short.MAX_VALUE)))
         );
         panelBorder1Layout.setVerticalGroup(
             panelBorder1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

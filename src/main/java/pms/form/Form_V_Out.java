@@ -1,7 +1,9 @@
 package pms.form;
 
 import java.rmi.RemoteException;
+import java.text.DecimalFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
@@ -354,14 +356,29 @@ public class Form_V_Out extends javax.swing.JPanel {
                         Form_V_Out_Advice.codeNo = (row[1] == null ? " " : row[1].toString());
                         Form_V_Out_Advice.plateNo = (row[2] == null ? " " : row[2].toString());
                         Form_V_Out_Advice.lbTinCustomer.setText(row[3] == null ? " " : row[3].toString());
-                        Form_V_Out_Advice.lbRemark.setText(row[4] == null ? " " : row[4].toString());
+                        //Form_V_Out_Advice.lbRemark.setText(row[4] == null ? " " : row[4].toString());
                         Form_V_Out_Advice.lbCompanyName.setText(row[5] == null ? " " : row[5].toString());
                         Form_V_Out_Advice.lbTinCompany.setText(row[6] == null ? " " : row[6].toString());
                         Form_V_Out_Advice.lbAddress1.setText(row[7] == null ? " " : row[7].toString());
                         Form_V_Out_Advice.lbAddress2.setText(row[8] == null ? " " : row[8].toString());
                         Form_V_Out_Advice.lbFeePerHr.setText(row[9] == null ? " " : row[9].toString());
                         Form_V_Out_Advice.lbPhoneNo.setText(row[10] == null ? " " : row[10].toString());
+
+                        Double perHr = Double.parseDouble(row[9].toString());
+                        Double parkedFor = Double.parseDouble(row[11].toString());
+                        DecimalFormat df = new DecimalFormat("###,###.##"); // Rounds to 2 decimal places
+                        
+
+                        Form_V_Out_Advice.lbCalulcation.setText(row[11] == null ? " " : row[11].toString() + " x " + row[9].toString());
+                        Form_V_Out_Advice.lbFeeBeforeTax.setText(String.valueOf(df.format(perHr * parkedFor)) + " ETB");
+                        Form_V_Out_Advice.lbFeeBeforeTax2.setText(String.valueOf(df.format(perHr * parkedFor)) + " ETB");
+                        Form_V_Out_Advice.lbTax.setText(String.valueOf(df.format(perHr * parkedFor * 0.15)) + " ETB");
+                        Form_V_Out_Advice.lbTotalFee.setText(String.valueOf(df.format(perHr * parkedFor * 1.15)) + "ETB");
+
+                        Form_V_Out_Advice.lbRemark.setText(row[12] == null ? " " : "Parked For: " + row[12].toString());
                         Form_V_Out_Advice.lbRecepitNo.setText(parkingEntryId);
+
+                        Form_V_Out_Advice.lbDateTime.setText(new Date().toString());
 
                         if (PopUp.confirmationDialog("Are you sure you want to Exit " + Form_V_Out_Advice.lbFullName.getText() + "'s "
                                 + Form_V_Out_Advice.codeNo + "-" + Form_V_Out_Advice.plateNo

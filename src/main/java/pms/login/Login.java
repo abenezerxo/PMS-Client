@@ -131,7 +131,6 @@ public class Login extends javax.swing.JFrame {
         });
 
         txtUsername.setFont(new java.awt.Font("Century Gothic", 0, 24)); // NOI18N
-        txtUsername.setText("estifanos");
         txtUsername.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtUsernameActionPerformed(evt);
@@ -139,7 +138,6 @@ public class Login extends javax.swing.JFrame {
         });
 
         txtPassword.setFont(new java.awt.Font("Century Gothic", 0, 24)); // NOI18N
-        txtPassword.setText("12345");
         txtPassword.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtPasswordActionPerformed(evt);
@@ -360,6 +358,7 @@ public class Login extends javax.swing.JFrame {
                         Client.companyID = (String) result[1];
                         Client.username = (String) result[2];
                         Client.userRole = (String) result[3];
+                        Client.companyName = (String) result[6];
                         new Client().setVisible(true);
                         this.dispose();
                     } else {
