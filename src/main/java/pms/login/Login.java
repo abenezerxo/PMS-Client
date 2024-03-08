@@ -6,6 +6,9 @@ import java.awt.event.KeyEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseMotionAdapter;
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
 import java.rmi.RemoteException;
 import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
@@ -19,7 +22,10 @@ import main.ClientRequests;
 import pms.common.PopUp;
 
 public class Login extends javax.swing.JFrame {
-
+    
+    public static String ip;
+    public static String port;
+    
     public Login() throws RemoteException {
         initComponents();
         connectToServer();
@@ -35,20 +41,34 @@ public class Login extends javax.swing.JFrame {
         }, 10);
     }
 
+        private static String getServerIP() {
+        String fileName = "Server-Address.txt"; // Read Server Address
+        String addressFromFile = "";
+        try (BufferedReader reader = new BufferedReader(new FileReader(fileName))) {
+            while ((addressFromFile = reader.readLine()) != null) {
+                System.out.println(addressFromFile);
+                return addressFromFile;
+            }
+        } catch (IOException e) {
+            System.err.println("Error reading from the file: " + e.getMessage());
+        }
+        return addressFromFile;
+    }
+    
     public ClientRequests connectToServer() {
 
         /* Define Ip address and Port number of the Server ** For login Service ONLY */
-        String ip = "127.0.0.1";
-        String port = "3333";
+        ip = getServerIP();
+        port = "3333";
         String host = "//" + ip + ":" + port + "/ClientRequest";
         ClientRequests stub = null;
         try {
             Registry registry = LocateRegistry.getRegistry(host);
-            /*ClientRequests*/ stub = (ClientRequests) java.rmi.Naming.lookup(host);
-            String response = stub.registerClient();
+            stub = (ClientRequests) java.rmi.Naming.lookup(host);
         } catch (Exception e) {
-
+            PopUp.showErrorMessage("Unalbe to connect to Server", "Connection Error");
         }
+        System.out.println(host);
         return stub;
     }
 

@@ -42,6 +42,7 @@ public class Menu extends javax.swing.JPanel {
             listMenu1.addItem(new Model_Menu("23", "Registration", Model_Menu.MenuType.MENU));
             listMenu1.addItem(new Model_Menu("24", "Search", Model_Menu.MenuType.MENU));
             listMenu1.addItem(new Model_Menu("", "", Model_Menu.MenuType.EMPTY));
+            listMenu1.addItem(new Model_Menu("25", "Setting", Model_Menu.MenuType.MENU));
             listMenu1.addItem(new Model_Menu("", "", Model_Menu.MenuType.EMPTY));
             listMenu1.addItem(new Model_Menu("11", "Logout", Model_Menu.MenuType.MENU));
 
@@ -125,13 +126,13 @@ public class Menu extends javax.swing.JPanel {
         Graphics2D g2 = (Graphics2D) g;
         g2.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
         GradientPaint gPaint;
-        
-        if(Client.userRole.equals("Admin")){
+
+        if (Client.userRole.equals("Admin")) {
             gPaint = new GradientPaint(0, 0, Color.decode("#f7f7d7"), 0, getHeight(), Color.decode("#dad07e"));
         } else {
             gPaint = new GradientPaint(0, 0, Color.decode("#eaf3fa"), 0, getHeight(), Color.decode("#4c4d49"));
         }
-        
+
         g2.setPaint(gPaint);
         g2.fillRoundRect(0, 0, getWidth(), getHeight(), 15, 15);
         g2.fillRect(getWidth() - 20, 0, getWidth(), getHeight());

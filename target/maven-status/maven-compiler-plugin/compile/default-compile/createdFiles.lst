@@ -58,6 +58,7 @@ pms\form\Form_V_Search_Detail$4.class
 main\Client$1.class
 pms\login\ForgetPassword$4.class
 pms\pagination\DefaultPaginationItemRender.class
+pms\admin\Form_A_Setting$2.class
 pms\form\Form_P_Registration.class
 pms\form\Form_V_Registration$6.class
 pms\admin\Form_C_Search_Detail$2.class
@@ -69,6 +70,7 @@ pms\admin\Form_A_Search$5.class
 pms\form\Form_V_Registration$3.class
 pms\form\Form_V_Registration$5.class
 pms\admin\Form_A_Search$2.class
+pms\admin\Form_A_Setting$1.class
 pms\login\ChangePassword$10.class
 pms\pagination\Pagination.class
 pms\form\Form_V_In$3.class
@@ -96,6 +98,7 @@ pms\form\Form_V_Out_Advice.class
 pms\admin\Form_A_Search$7.class
 pms\form\Form_V_Search_Detail$5.class
 pms\form\Form_P_Search$1.class
+pms\admin\Form_A_Setting$3.class
 pms\pagination\style\ButtonUI$1.class
 pms\pagination\Pagination$2.class
 pms\component\Card_Circle.class
@@ -169,6 +172,7 @@ pms\login\Login$11.class
 pms\form\Form_V_Search_Detail$1.class
 pms\form\Form_P_Search.class
 pms\form\Form_P_Search_Detail$2.class
+pms\admin\Form_A_Setting.class
 pms\form\Form_P_Registration$2.class
 pms\form\Table.class
 pms\pagination\style\PaginationItemRenderStyle1.class
