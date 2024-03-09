@@ -6,6 +6,7 @@ pms\form\Form_P_Search_Detail.class
 pms\login\ChangePassword$4.class
 pms\admin\Form_A_Registration$3.class
 pms\form\Form_P_Search$4.class
+pms\login\ServerSetting$3.class
 pms\admin\Form_A_Search$4.class
 pms\component\DateChooser$5.class
 pms\swing\ListMenu$3.class
@@ -18,6 +19,7 @@ pms\login\ChangePassword.class
 pms\login\Login$4.class
 pms\form\Form_V_Out_Search$4.class
 pms\swing\MenuItem.class
+pms\login\ServerSetting.class
 pms\form\Form_V_In_Search$2.class
 pms\admin\Form_C_Search_Detail$8.class
 pms\component\Card.class
@@ -25,6 +27,7 @@ pms\admin\Form_A_Search_Detail$4.class
 main\Client$2.class
 pms\form\Form_P_Registration$1.class
 pms\form\Form_V_Search_Detail$3.class
+pms\login\ServerSetting$8.class
 pms\form\Form_V_In_Search$1.class
 pms\form\Form_V_Out$2.class
 pms\admin\Form_A_Registration$8.class
@@ -49,9 +52,11 @@ pms\login\Login$9.class
 pms\admin\Form_A_Search_Detail$9.class
 pms\component\Menu.class
 pms\event\EventMenuSelected.class
+pms\login\ServerSetting$2.class
 pms\form\Form_V_In$1.class
 pms\login\ChangePassword$8.class
 pms\form\Form_V_In_Search$3.class
+pms\login\Login$13.class
 pms\admin\Form_A_Registration$10.class
 pms\admin\Form_A_Search_Detail$5.class
 pms\form\Form_V_Search_Detail$4.class
@@ -106,6 +111,7 @@ pms\model\Model_Card.class
 pms\component\DateChooser$8.class
 pms\admin\Form_A_Search$1.class
 pms\admin\Form_C_Search$5.class
+pms\login\ServerSetting$6.class
 pms\form\Form_P_Registration$3.class
 pms\login\Login$7.class
 pms\component\DateChooser$2.class
@@ -124,6 +130,7 @@ pms\component\DateChooser.class
 pms\login\ForgetPassword.class
 pms\form\Form_P_Search$6.class
 pms\form\TableHeader.class
+pms\login\ServerSetting$1.class
 pms\admin\Form_C_Search$6.class
 pms\pagination\Pagination$3.class
 pms\form\Form_V_Registration$2.class
@@ -167,6 +174,7 @@ pms\pagination\EventPagination.class
 pms\admin\Form_C_Registration$1.class
 pms\login\Login$8.class
 pms\form\Form_V_Out$1.class
+pms\login\ServerSetting$7.class
 pms\admin\Form_A_Registration$4.class
 pms\login\Login$11.class
 pms\form\Form_V_Search_Detail$1.class
@@ -190,6 +198,7 @@ pms\form\Form_V_Search$5.class
 pms\model\Model_Menu.class
 pms\admin\Form_C_Search$3.class
 pms\admin\Form_C_Registration$3.class
+pms\login\ServerSetting$4.class
 pms\form\Form_V_Out_Search_Detail.class
 pms\form\Form_V_Out_Advice$2.class
 pms\login\Login$10.class
@@ -202,6 +211,7 @@ pms\form\Form_V_Out_Search$2.class
 pms\component\Card_Rect.class
 pms\admin\Form_C_Registration$4.class
 pms\form\Form_Home.class
+pms\login\ServerSetting$5.class
 pms\admin\Form_C_Search_Detail$6.class
 pms\form\Form_P_Search_Detail$3.class
 pms\component\DateChooser$7.class

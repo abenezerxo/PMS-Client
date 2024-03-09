@@ -41,7 +41,7 @@ public class Login extends javax.swing.JFrame {
         }, 10);
     }
 
-        private static String getServerIP() {
+        public static String getServerIP() {
         String fileName = "Server-Address.txt"; // Read Server Address
         String addressFromFile = "";
         try (BufferedReader reader = new BufferedReader(new FileReader(fileName))) {
@@ -90,6 +90,7 @@ public class Login extends javax.swing.JFrame {
         txtPassword = new javax.swing.JPasswordField();
         jPanel1 = new javax.swing.JPanel();
         btnExit = new javax.swing.JButton();
+        lbSetting = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -196,6 +197,22 @@ public class Login extends javax.swing.JFrame {
         });
         jPanel1.add(btnExit);
 
+        lbSetting.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
+        lbSetting.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        lbSetting.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/setting-medl.png"))); // NOI18N
+        lbSetting.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
+        lbSetting.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lbSettingMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                lbSettingMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                lbSettingMouseExited(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -214,6 +231,7 @@ public class Login extends javax.swing.JFrame {
                     .addComponent(txtUsername, javax.swing.GroupLayout.PREFERRED_SIZE, 493, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 495, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
@@ -221,11 +239,13 @@ public class Login extends javax.swing.JFrame {
                         .addGap(267, 267, 267))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 538, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lbForgetPassword, javax.swing.GroupLayout.Alignment.TRAILING))))
+                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 538, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(lbForgetPassword)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(lbSetting)))
                 .addContainerGap())
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -243,8 +263,10 @@ public class Login extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(lbForgetPassword)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(lbSetting)
+                    .addComponent(lbForgetPassword))
+                .addGap(5, 5, 5)
                 .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -306,6 +328,21 @@ public class Login extends javax.swing.JFrame {
             login();
         }
     }//GEN-LAST:event_txtPasswordKeyPressed
+
+    private void lbSettingMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbSettingMouseClicked
+        new ServerSetting().setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_lbSettingMouseClicked
+
+    private void lbSettingMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbSettingMouseEntered
+        // TODO add your handling code here:
+        lbForgetPassword.setText("<html><b><span style=\"color:gray; background-color: yellow;\"> Server Setting </span></b></html>");
+    }//GEN-LAST:event_lbSettingMouseEntered
+
+    private void lbSettingMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbSettingMouseExited
+        // TODO add your handling code here:
+        lbForgetPassword.setText("<html> Forget Password?</html>");
+    }//GEN-LAST:event_lbSettingMouseExited
 
     public static void main(String args[]) {
         FlatLightLaf.setup();
@@ -406,6 +443,7 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JLabel lbForgetPassword;
+    private javax.swing.JLabel lbSetting;
     private javax.swing.JPanel pannelLogin;
     private javax.swing.JPasswordField txtPassword;
     private javax.swing.JTextField txtUsername;

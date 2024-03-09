@@ -5,6 +5,7 @@ import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.rmi.registry.LocateRegistry;
+import javax.swing.JOptionPane;
 import main.ClientRequests;
 import pms.common.PopUp;
 import pms.login.Login;
@@ -27,8 +28,8 @@ public class Form_A_Setting extends javax.swing.JPanel {
         driverPanel = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         buttonPanel1 = new javax.swing.JPanel();
-        btnSave = new javax.swing.JButton();
-        btnReset = new javax.swing.JButton();
+        btnEdit = new javax.swing.JButton();
+        btnDefault = new javax.swing.JButton();
         jPanel6 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         txtIpAddress = new javax.swing.JTextField();
@@ -44,19 +45,19 @@ public class Form_A_Setting extends javax.swing.JPanel {
 
         buttonPanel1.setBackground(new java.awt.Color(221, 240, 255));
 
-        btnSave.setFont(new java.awt.Font("Century Gothic", 1, 24)); // NOI18N
-        btnSave.setText("S A V E");
-        btnSave.addActionListener(new java.awt.event.ActionListener() {
+        btnEdit.setFont(new java.awt.Font("Century Gothic", 1, 24)); // NOI18N
+        btnEdit.setText(" E D I T ");
+        btnEdit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnSaveActionPerformed(evt);
+                btnEditActionPerformed(evt);
             }
         });
 
-        btnReset.setFont(new java.awt.Font("Century Gothic", 1, 24)); // NOI18N
-        btnReset.setText("R E S E T");
-        btnReset.addActionListener(new java.awt.event.ActionListener() {
+        btnDefault.setFont(new java.awt.Font("Century Gothic", 1, 24)); // NOI18N
+        btnDefault.setText(" D E F A U L T ");
+        btnDefault.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnResetActionPerformed(evt);
+                btnDefaultActionPerformed(evt);
             }
         });
 
@@ -64,20 +65,20 @@ public class Form_A_Setting extends javax.swing.JPanel {
         buttonPanel1.setLayout(buttonPanel1Layout);
         buttonPanel1Layout.setHorizontalGroup(
             buttonPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, buttonPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(btnReset, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 68, Short.MAX_VALUE)
-                .addComponent(btnSave)
+            .addGroup(buttonPanel1Layout.createSequentialGroup()
+                .addGap(320, 320, 320)
+                .addComponent(btnEdit, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(53, 53, 53)
+                .addComponent(btnDefault, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
         buttonPanel1Layout.setVerticalGroup(
             buttonPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(buttonPanel1Layout.createSequentialGroup()
-                .addGap(18, 18, 18)
+                .addGap(5, 5, 5)
                 .addGroup(buttonPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnReset)
-                    .addComponent(btnSave))
+                    .addComponent(btnDefault)
+                    .addComponent(btnEdit, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -85,10 +86,10 @@ public class Form_A_Setting extends javax.swing.JPanel {
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(365, Short.MAX_VALUE)
-                .addComponent(buttonPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(279, 279, 279))
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(buttonPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -105,6 +106,7 @@ public class Form_A_Setting extends javax.swing.JPanel {
         jLabel1.setText("S e r v e r   A d d r e s s ");
         jPanel6.add(jLabel1);
 
+        txtIpAddress.setEditable(false);
         txtIpAddress.setColumns(20);
         txtIpAddress.setFont(new java.awt.Font("Century Gothic", 3, 24)); // NOI18N
         txtIpAddress.setText("localhost");
@@ -124,26 +126,27 @@ public class Form_A_Setting extends javax.swing.JPanel {
         driverPanelLayout.setHorizontalGroup(
             driverPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(driverPanelLayout.createSequentialGroup()
-                .addContainerGap()
                 .addGroup(driverPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lbDriver, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(driverPanelLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(driverPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lbDriver, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addGroup(driverPanelLayout.createSequentialGroup()
+                        .addGap(24, 24, 24)
+                        .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addContainerGap())
-            .addGroup(driverPanelLayout.createSequentialGroup()
-                .addGap(24, 24, 24)
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(76, Short.MAX_VALUE))
         );
         driverPanelLayout.setVerticalGroup(
             driverPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(driverPanelLayout.createSequentialGroup()
-                .addGap(40, 40, 40)
-                .addComponent(lbDriver, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap()
+                .addComponent(lbDriver, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(47, 47, 47)
                 .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(82, 82, 82)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(56, Short.MAX_VALUE))
+                .addContainerGap(75, Short.MAX_VALUE))
         );
 
         jPanel4.setLayout(new java.awt.GridBagLayout());
@@ -165,16 +168,13 @@ public class Form_A_Setting extends javax.swing.JPanel {
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap())
             .addGroup(layout.createSequentialGroup()
-                .addGap(25, 25, 25)
-                .addComponent(driverPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(driverPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanel4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -183,18 +183,56 @@ public class Form_A_Setting extends javax.swing.JPanel {
                 .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(32, 32, 32)
-                .addComponent(driverPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(82, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(driverPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnResetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnResetActionPerformed
-        clearForm();
-    }//GEN-LAST:event_btnResetActionPerformed
+    private void btnDefaultActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDefaultActionPerformed
+        if (btnDefault.getText().equals(" D E F A U L T ")) {
+            // Check if the current IP address is the local machines
+            if (txtIpAddress.getText().equals("localhost") || txtIpAddress.getText().equals("127.0.0.1")) {
+                PopUp.infoDialog("The current Server ip address is already the local machines!", "Default IP`");
+            } else {
+                if (PopUp.confirmationDialog("Are you sure you want the server address to be localhost?", "Change Server Address to `localhost`") == JOptionPane.YES_OPTION) {
+                    // Revert back to localhost
+                    txtIpAddress.setText("localhost");
+                    changeServerAddress();
+                }
+            }
+        } else {
+            // when cancel is clicked
+            txtIpAddress.setText(Login.getServerIP());
+            changeBtnToEdit();
+        }
+    }//GEN-LAST:event_btnDefaultActionPerformed
 
-    private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
+    private void btnEditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditActionPerformed
+        if (btnEdit.getText().equals(" E D I T ")) {
+            changeBtnToSave();
+        } else {
+            changeServerAddress();
+        }
+    }//GEN-LAST:event_btnEditActionPerformed
 
+    private void txtIpAddressActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtIpAddressActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtIpAddressActionPerformed
+
+    private void changeBtnToEdit() {
+        btnEdit.setText(" E D I T ");
+        btnDefault.setText(" D E F A U L T ");
+        txtIpAddress.setEditable(false);
+    }
+
+    private void changeBtnToSave() {
+        btnEdit.setText(" S A V E ");
+        btnDefault.setText(" C A N C E L ");
+        txtIpAddress.setEditable(true);
+    }
+
+    private void changeServerAddress() {
         if (txtIpAddress.getText().isBlank()) {
             txtIpAddress.setBackground(Color.red);
             PopUp.showErrorMessage("Server Address can not be blank.", "Blank Server Address");
@@ -222,25 +260,17 @@ public class Form_A_Setting extends javax.swing.JPanel {
                 // Write content to the file
                 writer.write(txtIpAddress.getText());
                 PopUp.infoDialog("Server Address has been updated", "Server Address Update");
+                changeBtnToEdit();
             } catch (IOException e) {
                 PopUp.showGenericError();
                 System.err.println("Error writing to the file: " + e.getMessage());
             }
         }
-
-    }//GEN-LAST:event_btnSaveActionPerformed
-
-    private void txtIpAddressActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtIpAddressActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtIpAddressActionPerformed
-
-    private void clearForm() {
-        txtIpAddress.setText("");
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnDefault;
+    private javax.swing.JButton btnEdit;
     public static javax.swing.ButtonGroup btnGroupEnableDisable;
-    private javax.swing.JButton btnReset;
-    private javax.swing.JButton btnSave;
     private javax.swing.JPanel buttonPanel1;
     private javax.swing.JPanel driverPanel;
     private javax.swing.JLabel jLabel1;
