@@ -55,7 +55,7 @@ public class Login extends javax.swing.JFrame {
         return addressFromFile;
     }
     
-    public ClientRequests connectToServer() {
+    public ClientRequests connectToServer() throws RemoteException {
 
         /* Define Ip address and Port number of the Server ** For login Service ONLY */
         ip = getServerIP();

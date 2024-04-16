@@ -40,4 +40,5 @@ public interface ClientRequests extends Remote {
 
     public int registerCompany(String companyName, String tinNo, String address1, String address2, String phoneNo, String feePerHr) throws RemoteException;
 
+    public boolean testDbConnection() throws RemoteException;
 }

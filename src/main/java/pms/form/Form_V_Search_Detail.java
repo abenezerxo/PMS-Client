@@ -163,6 +163,7 @@ public class Form_V_Search_Detail extends javax.swing.JPanel {
         txtMobile.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
 
         txtDateOfBirth.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
+        txtDateOfBirth.setText("2024-16-04");
 
         txtJobTitle.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
 

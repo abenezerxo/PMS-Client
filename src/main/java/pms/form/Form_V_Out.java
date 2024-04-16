@@ -228,7 +228,7 @@ public class Form_V_Out extends javax.swing.JPanel {
         jPanel2.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER, 20, 5));
 
         jLabel3.setFont(new java.awt.Font("Century Gothic", 0, 24)); // NOI18N
-        jLabel3.setText("P a r k e d  F o r :");
+        jLabel3.setText("P a r k e d  S i n c e :");
         jPanel2.add(jLabel3);
 
         jPanel5.setBackground(new java.awt.Color(201, 231, 255));
